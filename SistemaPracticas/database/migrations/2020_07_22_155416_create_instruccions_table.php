@@ -14,7 +14,7 @@ class CreateInstruccionsTable extends Migration
     public function up()
     {
         Schema::create('instruccions', function (Blueprint $table) {
-            $table->bigIncrements('idInstruccion');
+            $table->bigIncrements('id');
             $table->string('institucion');
             $table->string('especializacion');
             $table->string('tituloObtenido');

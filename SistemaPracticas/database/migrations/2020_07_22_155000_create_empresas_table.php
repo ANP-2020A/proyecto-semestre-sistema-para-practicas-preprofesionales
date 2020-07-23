@@ -14,9 +14,9 @@ class CreateEmpresasTable extends Migration
     public function up()
     {
         Schema::create('empresas', function (Blueprint $table) {
-            $table->bigIncrements('idEmpresa');
+            $table->bigIncrements('id');
             $table->string('nombre');
-            $table->integer('ruc');
+            $table->string('ruc');
             $table->string('tipo');
             $table->string('telefono'); //se envia el telf como string porque se requerira ingesar el prefijo segun ciudad o pais
             $table->string('correo');

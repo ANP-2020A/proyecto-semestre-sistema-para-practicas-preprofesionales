@@ -14,10 +14,10 @@ class CreatePasantesTable extends Migration
     public function up()
     {
         Schema::create('pasantes', function (Blueprint $table) {
-            $table->bigIncrements('idPasante');
-            $table->integer('cedula');
-            $table->string('nombre');
-            $table->string('apellido');
+            $table->bigIncrements('id');
+            $table->string('cedula');
+/*            $table->string('nombre');
+            $table->string('apellido');*/
             $table->date('fechaNacimiento');
             $table->string('telefonoConv');
             $table->string('telefonoCelu');
