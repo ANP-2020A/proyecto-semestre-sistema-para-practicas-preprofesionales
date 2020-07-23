@@ -17,7 +17,7 @@ class EmpresasTableSeeder extends Seeder
         {
             \App\Empresa::create([
                 'nombre'=> $faker->sentence,
-                'ruc'=> $faker->randomNumber(),
+                'ruc'=> $faker->phoneNumber,
                 'tipo'=> $faker ->sentence,
                 'telefono'=> $faker->phoneNumber,
                 'correo'=> $faker->companyEmail,
