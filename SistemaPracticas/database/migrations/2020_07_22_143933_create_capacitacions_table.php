@@ -14,7 +14,7 @@ class CreateCapacitacionsTable extends Migration
     public function up()
     {
         Schema::create('capacitacions', function (Blueprint $table) {
-            $table->bigIncrements('idCapacitacion');
+            $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('tipo');
             $table->string('institucion');

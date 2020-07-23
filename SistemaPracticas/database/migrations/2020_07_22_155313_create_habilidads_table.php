@@ -14,7 +14,7 @@ class CreateHabilidadsTable extends Migration
     public function up()
     {
         Schema::create('habilidads', function (Blueprint $table) {
-            $table->bigIncrements('idHabilidad');
+            $table->bigIncrements('id');
             $table->string('nombre');
             $table->text('descripcion');
             $table->double('porcentajeDominio');
