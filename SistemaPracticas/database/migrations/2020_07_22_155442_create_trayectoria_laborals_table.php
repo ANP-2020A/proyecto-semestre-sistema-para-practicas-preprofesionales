@@ -21,7 +21,7 @@ class CreateTrayectoriaLaboralsTable extends Migration
             $table->string('cargo');
             $table->text('responsabilidades');
             $table->string('razonSalida');
-            $table->date('fechaSalida');
+
             $table->timestamps();
         });
     }

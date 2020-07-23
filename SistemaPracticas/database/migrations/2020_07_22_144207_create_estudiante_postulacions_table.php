@@ -15,7 +15,7 @@ class CreateEstudiantePostulacionsTable extends Migration
     {
         Schema::create('estudiante_postulacions', function (Blueprint $table) {
             $table->bigIncrements('idEstudiantePostulacion');
-            $table->string('estado');
+            $table->boolean('estado');
             $table->timestamps();
         });
     }
