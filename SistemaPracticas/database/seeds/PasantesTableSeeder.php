@@ -17,8 +17,8 @@ class PasantesTableSeeder extends Seeder
         {
             \App\Pasante::create([
                 'cedula'=> $faker ->phoneNumber,
-                'nombre'=> $faker->name,
-                'apellido'=> $faker->lastName,
+/*                'nombre'=> $faker->name,
+                'apellido'=> $faker->lastName,*/
                 'fechaNacimiento'=>$faker->dateTimeBetween('1990-01-01','2002-01-01'),
                 'telefonoConv'=>$faker->phoneNumber,
                 'telefonoCelu'=>$faker->phoneNumber,
