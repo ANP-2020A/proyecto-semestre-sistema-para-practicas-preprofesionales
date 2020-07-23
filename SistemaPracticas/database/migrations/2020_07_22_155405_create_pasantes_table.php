@@ -15,7 +15,7 @@ class CreatePasantesTable extends Migration
     {
         Schema::create('pasantes', function (Blueprint $table) {
             $table->bigIncrements('idPasante');
-            $table->string('cedula');
+            $table->integer('cedula');
             $table->string('nombre');
             $table->string('apellido');
             $table->date('fechaNacimiento');
@@ -26,8 +26,13 @@ class CreatePasantesTable extends Migration
             $table->string('direccion');
             $table->boolean('capacidadEspecial');
             $table->string('carnetConadis');
-            //No coloco los campos de provincia, canton y parroquia proque deben ser claves foraneas
-            //tambien el campo de estado civil, tipo de sangre, etnia y carrera
+            $table->string('estadoCivil');
+            $table->string('tipoSangre');
+            $table->string('etnia');
+            $table->string('carrera');
+            $table->string('provincia');
+            $table->string('canton');
+            $table->string('parroquia');
             $table->timestamps();
         });
     }

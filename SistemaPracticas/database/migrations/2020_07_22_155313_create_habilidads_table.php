@@ -16,7 +16,7 @@ class CreateHabilidadsTable extends Migration
         Schema::create('habilidads', function (Blueprint $table) {
             $table->bigIncrements('idHabilidad');
             $table->string('nombre');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->double('porcentajeDominio');
             $table->timestamps();
         });
