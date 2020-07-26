@@ -9,37 +9,38 @@ class AddForeignKeys extends Migration
 
     public function up()
     {
+        //Añade claves foraneas y establece relaciones entre las tablas
         Schema::table('habilidads', function (Blueprint $table){
-            $table->unsignedBigInteger('id_pasante');
-            $table->foreign('id_pasante')->references('id')->on('pasantes');
+            $table->unsignedBigInteger('pasante_id');
+            $table->foreign('pasante_id')->references('id')->on('pasantes')->ondelete('restrict');
         });
         Schema::table('carreras', function (Blueprint $table){
-            $table->unsignedBigInteger('id_pasante');
-            $table->foreign('id_pasante')->references('id')->on('pasantes');
+            $table->unsignedBigInteger('pasante_id');
+            $table->foreign('pasante_id')->references('id')->on('pasantes')->ondelete('restrict');
         });
         Schema::table('instruccions', function (Blueprint $table){
-            $table->unsignedBigInteger('id_pasante');
-            $table->foreign('id_pasante')->references('id')->on('pasantes');
+            $table->unsignedBigInteger('pasante_id');
+            $table->foreign('pasante_id')->references('id')->on('pasantes')->ondelete('restrict');
         });
         Schema::table('trayectoria_laborals', function (Blueprint $table){
-            $table->unsignedBigInteger('id_pasante');
-            $table->foreign('id_pasante')->references('id')->on('pasantes');
+            $table->unsignedBigInteger('pasante_id');
+            $table->foreign('pasante_id')->references('id')->on('pasantes')->ondelete('restrict');
         });
         Schema::table('capacitacions', function (Blueprint $table){
-            $table->unsignedBigInteger('id_pasante');
-            $table->foreign('id_pasante')->references('id')->on('pasantes');
+            $table->unsignedBigInteger('pasante_id');
+            $table->foreign('pasante_id')->references('id')->on('pasantes')->ondelete('restrict');
         });
 
         Schema::table('ofertas', function (Blueprint $table){
-            $table->unsignedBigInteger('id_empresa');
-            $table->foreign('id_empresa')->references('id')->on('empresas');
+            $table->unsignedBigInteger('empresa_id');
+            $table->foreign('empresa_id')->references('id')->on('empresas')->ondelete('restrict');
         });
 
         Schema::table('estudiante_postulacions', function (Blueprint $table){
-            $table->unsignedBigInteger('id_pasante');
-            $table->unsignedBigInteger('id_oferta');
-            $table->foreign('id_pasante')->references('id')->on('pasantes');
-            $table->foreign('id_oferta')->references('id')->on('ofertas');
+            $table->unsignedBigInteger('pasante_id');
+            $table->unsignedBigInteger('oferta_id');
+            $table->foreign('pasante_id')->references('id')->on('pasantes');
+            $table->foreign('oferta_id')->references('id')->on('ofertas');
 
         });
 
@@ -48,28 +49,28 @@ class AddForeignKeys extends Migration
     public function down()
     {
         Schema::table('habilidads', function (Blueprint $table){
-            $table->dropForeign(['id_pasante']);
+            $table->dropForeign(['pasante_id']);
         });
         Schema::table('carreras', function (Blueprint $table){
-            $table->dropForeign(['id_pasante']);
+            $table->dropForeign(['pasante_id']);
         });
         Schema::table('instruccions', function (Blueprint $table){
-            $table->dropForeign(['id_pasante']);
+            $table->dropForeign(['pasante_id']);
         });
         Schema::table('trayectoria_laborals', function (Blueprint $table){
-            $table->dropForeign(['id_pasante']);
+            $table->dropForeign(['pasante_id']);
         });
         Schema::table('capacitacions', function (Blueprint $table){
-            $table->dropForeign(['id_pasante']);
+            $table->dropForeign(['pasante_id']);
         });
 
         Schema::table('ofertas', function (Blueprint $table){
-            $table->dropForeign(['id_empresa']);
+            $table->dropForeign(['empresa_id']);
         });
 
         Schema::table('estudiante_postulacions', function (Blueprint $table){
-            $table->dropForeign(['id_pasante']);
-            $table->dropForeign(['id_oferta']);
+            $table->dropForeign(['pasante_id']);
+            $table->dropForeign(['oferta_id']);
         });
     }
 }
