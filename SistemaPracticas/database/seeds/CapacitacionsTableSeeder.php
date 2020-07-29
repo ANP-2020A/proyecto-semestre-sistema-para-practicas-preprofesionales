@@ -1,5 +1,6 @@
 <?php
 
+use App\Capacitacion;
 use Illuminate\Database\Seeder;
 
 class CapacitacionsTableSeeder extends Seeder
@@ -11,11 +12,11 @@ class CapacitacionsTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Capacitacion::truncate();
+        Capacitacion::truncate();
         $faker = \Faker\Factory::create();
         for($i = 0; $i < 50; $i++)
         {
-            \App\Capacitacion::create([
+            Capacitacion::create([
                 'nombre'=> $faker ->sentence,
                 'tipo'=> $faker->sentence,
                 'institucion'=> $faker->sentence,
@@ -23,7 +24,7 @@ class CapacitacionsTableSeeder extends Seeder
                 'fechaInicio'=> $faker->dateTimeBetween('2000-01-01', '+30 years'),
                 'fechaFin'=> $faker->dateTimeBetween('2000-01-01', '+30 years')
 
-                ])
-            ;}
+                ]);
+            }
     }
 }
