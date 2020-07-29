@@ -19,4 +19,8 @@ class Oferta extends Model
     public function empresas(){
         return $this->belongsTo('App\Empresa');
     }
+
+    public function pasantes(){
+        return $this->belongsToMany('App\Pasante','estudiante_postulacions');
+    }
 }

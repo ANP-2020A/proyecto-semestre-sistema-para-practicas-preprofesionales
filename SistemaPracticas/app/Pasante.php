@@ -25,6 +25,11 @@ class Pasante extends Model
     public function capacitacions(){
         return $this->hasMany('App\Capacitacion');
     }
+
+    public function ofertas(){
+        return $this->belongsToMany('App\Oferta','estudiante_postulacions');
+    }
+
 }
 
 
