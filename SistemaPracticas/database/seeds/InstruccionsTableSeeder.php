@@ -16,6 +16,7 @@ class InstruccionsTableSeeder extends Seeder
         for($i = 0; $i < 50; $i++)
         {
             \App\Instruccion::create([
+                'id_pasante'=>$faker->numberBetween(1,50),
                 'institucion'=> $faker->sentence,
                 'especializacion'=> $faker->sentence,
                 'tituloObtenido'=>$faker->sentence,

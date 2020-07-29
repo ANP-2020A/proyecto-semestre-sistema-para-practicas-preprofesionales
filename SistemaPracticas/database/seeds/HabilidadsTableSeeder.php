@@ -16,6 +16,7 @@ class HabilidadsTableSeeder extends Seeder
         for($i = 0; $i < 50; $i++)
         {
             \App\Habilidad::create([
+                'id_pasante'=>$faker->numberBetween(1,50),
                 'nombre'=> $faker ->sentence,
                 'descripcion'=> $faker->text,
                 'porcentajeDominio'=> $faker->randomNumber()

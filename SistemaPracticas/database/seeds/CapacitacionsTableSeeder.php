@@ -18,6 +18,7 @@ class CapacitacionsTableSeeder extends Seeder
         {
             Capacitacion::create([
                 'nombre'=> $faker ->sentence,
+                'id_pasante'=>$faker->numberBetween(1,50),
                 'tipo'=> $faker->sentence,
                 'institucion'=> $faker->sentence,
                 'certificado'=>$faker->sentence,

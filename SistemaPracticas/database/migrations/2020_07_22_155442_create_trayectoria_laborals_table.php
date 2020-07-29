@@ -14,7 +14,7 @@ class CreateTrayectoriaLaboralsTable extends Migration
     public function up()
     {
         Schema::create('trayectoria_laborals', function (Blueprint $table) {
-            $table->bigIncrements('idTrayectoriaLaboral');
+            $table->bigIncrements('id');
             $table->date('fechaInicio');
             $table->date('fechaFin');
             $table->string('empresa');
