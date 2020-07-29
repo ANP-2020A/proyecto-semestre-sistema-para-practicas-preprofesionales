@@ -1,5 +1,6 @@
 <?php
 
+use App\Carrera;
 use Illuminate\Database\Seeder;
 
 class CarrerasTableSeeder extends Seeder
@@ -11,11 +12,11 @@ class CarrerasTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Carrera::truncate();
+        Carrera::truncate();
         $faker = \Faker\Factory::create();
         for($i = 0; $i < 50; $i++)
         {
-            \App\Carrera::create([
+            Carrera::create([
                 'nombre'=> $faker ->sentence,
                 'institucion'=> $faker->sentence,
                 'semestre'=> $faker->randomNumber(1),
