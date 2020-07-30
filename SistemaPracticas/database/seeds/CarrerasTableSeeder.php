@@ -16,9 +16,9 @@ class CarrerasTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
         for($i = 0; $i < 50; $i++)
         {
-            
+
             Carrera::create([
-                'id_pasante'=>$faker->numberBetween(1,50),
+                'pasante_id'=>$faker->numberBetween(1,50),
                 'nombre'=> $faker ->sentence,
                 'institucion'=> $faker->sentence,
                 'semestre'=> $faker->randomNumber(1),

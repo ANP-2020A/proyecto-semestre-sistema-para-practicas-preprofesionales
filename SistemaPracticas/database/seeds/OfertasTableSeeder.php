@@ -16,7 +16,7 @@ class OfertasTableSeeder extends Seeder
         for($i = 0; $i < 50; $i++)
         {
             \App\Oferta::create([
-                'id_empresa'=>$faker->numberBetween(1,50),
+                'empresa_id'=>$faker->numberBetween(1,50),
                 'nombre'=> $faker ->sentence,
                 'descripcion'=> $faker->paragraph,
                 'direccion'=> $faker->address,

@@ -4,7 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Eloquent;
 
+/**
+ * Class Oferta
+ * @package App
+ * @mixin Eloquent
+ */
 class Oferta extends Model
 {
     protected $fillable = ['nombre','descripcion','direccion','remunerado','salario','jornada','horario','ciudad'];
