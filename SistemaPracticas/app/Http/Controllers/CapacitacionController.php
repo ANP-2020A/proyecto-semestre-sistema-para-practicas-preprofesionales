@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Capacitacion;
+use App\Http\Resources\CapacitacionCollection;
+use App\Http\Resources\Capacitacion as CapacitacionResource;
 use Illuminate\Http\Request;
 
 class CapacitacionController extends Controller
 {
 public function index(){
-    return Capacitacion::all();
+    return new CapacitacionCollection(Capacitacion::paginate());
 }
 public function show(Capacitacion $capacitacion){
-    return $capacitacion;
+    return response()->json(new CapacitacionResource($capacitacion),200);
 }
 public function store (Request $request){
     $capacitacion= Capacitacion::create($request->all());

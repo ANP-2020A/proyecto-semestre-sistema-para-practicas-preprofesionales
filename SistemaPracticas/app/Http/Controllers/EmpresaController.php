@@ -3,16 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Empresa;
+use App\Http\Resources\EmpresaCollection;
+use App\Http\Resources\Empresa as EmpresaResource;
 use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
 {
     //
 public function index(){
-    return Empresa::all();
+    return new EmpresaCollection(Empresa::paginate());
 }
 public function show(Empresa $empresa){
-    return $empresa;
+    return response()->json(new EmpresaResource($empresa),200);
 }
 public function store(Request $request){
     $empresa= Empresa::create($request->all());

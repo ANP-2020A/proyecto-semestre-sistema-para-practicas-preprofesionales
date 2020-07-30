@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PasanteCollection;
+use App\Http\Resources\Pasante as PasanteResource;
 use App\Pasante;
 use Illuminate\Http\Request;
 
@@ -9,10 +11,10 @@ class PasanteController extends Controller
 {
     //
 public function index(){
-    return Pasante::all();
+    return new PasanteCollection(Pasante::paginate());
 }
 public function show(Pasante  $pasante){
-    return  $pasante;
+    return response()->json(new PasanteResource($pasante),200);
 }
 public function store(Request $request){
     $pasante= Pasante::create($request->all());

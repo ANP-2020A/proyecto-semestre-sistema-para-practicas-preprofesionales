@@ -3,16 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\EstudiantePostulacion;
+use App\Http\Resources\EstudiantePostulacionCollection;
+use App\Http\Resources\EstudiantePostulacion as EstudiantePostulacionResource;
 use Illuminate\Http\Request;
 
 class EstudiantePostulacionController extends Controller
 {
     //
 public function index(){
-    return EstudiantePostulacion::all();
+    return new EstudiantePostulacionCollection(EstudiantePostulacion::paginate());
 }
 public function show(EstudiantePostulacion $estudiante_postulacion){
-    return $estudiante_postulacion;
+    return response()->json(new EstudiantePostulacionResource($estudiante_postulacion),200);
 }
 public function store(Request $request){
     $estudiante_postulacion=EstudiantePostulacion::create($request->all());

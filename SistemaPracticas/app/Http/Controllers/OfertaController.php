@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OfertaCollection;
+use App\Http\Resources\Oferta as OfertaResource;
 use App\Oferta;
 use Illuminate\Http\Request;
 
@@ -9,10 +11,10 @@ class OfertaController extends Controller
 {
     //
 public function index(){
-    return Oferta::all();
+    return new OfertaCollection(Oferta::paginate());
 }
 public function show(Oferta $oferta){
-    return $oferta;
+    return response()->json(new OfertaResource($oferta),200);
 }
 public function store(Request $request){
     $oferta=Oferta::create($request->all());
