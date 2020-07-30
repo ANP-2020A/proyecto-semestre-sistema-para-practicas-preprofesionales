@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\InstruccionCollection;
+use App\Http\Resources\Instruccion as InstruccionResource;
 use App\Instruccion;
 use Illuminate\Http\Request;
 
@@ -9,10 +11,10 @@ class InstruccionController extends Controller
 {
     //
 public function index(){
-    return Instruccion::all();
+    return new InstruccionCollection( Instruccion::paginate());
 }
 public function show(Instruccion $instruccion){
-    return $instruccion;
+    return response()->json(new InstruccionResource($instruccion),200);
 }
 public function store(Request $request){
     $instruccion= Instruccion::create($request->all());

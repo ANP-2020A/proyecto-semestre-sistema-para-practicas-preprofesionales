@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\TrayectoriaLaboralCollection;
+use App\Http\Resources\TrayectoriaLaboral as TrayectoriaLaboralResource;
 use App\TrayectoriaLaboral;
 use Illuminate\Http\Request;
 
@@ -9,10 +11,10 @@ class TrayectoriaLaboralController extends Controller
 {
     //
 public function index(){
-    return TrayectoriaLaboral::all();
+    return new TrayectoriaLaboralCollection(TrayectoriaLaboral::paginate());
 }
 public function show(TrayectoriaLaboral $trayectoria_laboral){
-    return $trayectoria_laboral;
+    return response()->json(new TrayectoriaLaboralResource($trayectoria_laboral),200);
 }
 public function store(Request $request){
     $trayectoria_laboral= TrayectoriaLaboral::create($request->all());
