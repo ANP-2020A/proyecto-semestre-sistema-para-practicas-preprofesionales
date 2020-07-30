@@ -15,7 +15,7 @@ class Oferta extends JsonResource
     public function toArray($request)
     {
         return [
-            'id_empresa'=>$this->id_empresa,
+            'empresa_id'=>$this->empresa_id,
             'nombre'=> $this ->nombre,
             'descripcion'=> $this->descripcion,
             'direccion'=> $this->direccion,

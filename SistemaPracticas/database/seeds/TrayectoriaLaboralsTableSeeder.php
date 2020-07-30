@@ -17,7 +17,7 @@ class TrayectoriaLaboralsTableSeeder extends Seeder
         for($i = 0; $i < 50; $i++)
         {
             \App\TrayectoriaLaboral::create([
-                'id_pasante'=>$faker->numberBetween(1,50),
+                'pasante_id'=>$faker->numberBetween(1,50),
                 'fechaInicio'=> $faker->dateTimeBetween('2000-01-01', '+30 years'),
                 'fechaFin'=> $faker->dateTimeBetween('2000-01-01', '+30 years'),
                 'empresa'=> $faker ->sentence,
