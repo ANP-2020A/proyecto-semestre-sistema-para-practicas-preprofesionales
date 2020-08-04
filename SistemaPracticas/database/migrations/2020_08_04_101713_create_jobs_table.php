@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHabilidadsTable extends Migration
+class CreateJobsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateHabilidadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('habilidads', function (Blueprint $table) {
+        Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
-            $table->text('descripcion');
-            $table->double('porcentajeDominio');
+            $table->date('start_date');
+            $table->date('finish_date');
+            $table->string('enterprise');
+            $table->string('charge');
+            $table->text('responsibility');
+            $table->string('reason_why');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateHabilidadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('habilidads');
+        Schema::dropIfExists('jobs');
     }
 }

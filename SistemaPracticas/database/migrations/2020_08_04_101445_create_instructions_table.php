@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInstruccionsTable extends Migration
+class CreateInstructionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateInstruccionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('instruccions', function (Blueprint $table) {
+        Schema::create('instructions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('institucion');
-            $table->string('especializacion');
-            $table->string('tituloObtenido');
+            $table->string('instruction');
+            $table->string('specialization');
+            $table->string('obtained_title');
             $table->string('diploma');
             $table->timestamps();
             //la especializacion y el nivel deben ser claves foraneas
@@ -31,6 +31,6 @@ class CreateInstruccionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('instruccions');
+        Schema::dropIfExists('instructions');
     }
 }
