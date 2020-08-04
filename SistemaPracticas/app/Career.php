@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 /**
- * App\Carrera
+ * App\Career
  *
  * @property int $id
  * @property string $name
@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int $intern_id
- * @property-read \App\Pasante $interns
+ * @property-read \App\Intern $interns
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Career newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Career newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Career query()
