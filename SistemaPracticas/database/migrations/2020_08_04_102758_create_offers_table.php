@@ -18,10 +18,10 @@ class CreateOffersTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('address');
-            $table->boolean('paid');
-            $table->double('gain');
-            $table->string('shift'); /*JORNADA*/
-            $table->string('schedule'); /*HORARIO*/
+            $table->boolean('paid');/* REMUNERADO ? */
+            $table->double('gain'); /* SALARIO */
+            $table->string('shift'); /* JORNADA */
+            $table->string('schedule'); /* HORARIO */
             $table->string('city');
             $table->timestamps();
         });
