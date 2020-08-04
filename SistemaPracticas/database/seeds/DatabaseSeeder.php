@@ -8,16 +8,15 @@ class DatabaseSeeder extends Seeder
     {
         Schema::disableForeignKeyConstraints();
         $this->call(UsersTableSeeder::class);
-        $this->call(CapacitacionsTableSeeder::class);
-        $this->call(CarrerasTableSeeder::class);
-        $this->call(EmpresasTableSeeder::class);
-        $this->call(EstudiantePostulacionTableSeeder::class);
-
-        $this->call(HabilidadsTableSeeder::class);
-        $this->call(InstruccionsTableSeeder::class);
-        $this->call(OfertasTableSeeder::class);
-        $this->call(PasantesTableSeeder::class);
-        $this->call(TrayectoriaLaboralsTableSeeder::class);
+        $this->call(InternsTableSeeder::class);
+        $this->call(BusinessesTableSeeder::class);
+        $this->call(OffersTableSeeder::class);
+        $this->call(PostulationsTableSeeder::class);
+        $this->call(CareersTableSeeder::class);
+        $this->call(SkillsTableSeeder::class);
+        $this->call(InstructionsTableSeeder::class);
+        $this->call(JobsTableSeeder::class);
+        $this->call(TrainingsTableSeeder::class);
         Schema::enableForeignKeyConstraints();
 
     }

@@ -17,7 +17,7 @@ class CreateSkillsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('description');
-            $table->double('percent');
+            $table->double('percent');  /*PORCENTAJE DOMINIO*/
             $table->timestamps();
         });
     }
