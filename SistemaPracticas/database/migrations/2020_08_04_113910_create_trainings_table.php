@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTrayectoriaLaboralsTable extends Migration
+class CreateTrainingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateTrayectoriaLaboralsTable extends Migration
      */
     public function up()
     {
-        Schema::create('trayectoria_laborals', function (Blueprint $table) {
+        Schema::create('trainings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('fechaInicio');
-            $table->date('fechaFin');
-            $table->string('empresa');
-            $table->string('cargo');
-            $table->text('responsabilidades');
-            $table->string('razonSalida');
-
+            $table->string('name');
+            $table->string('type');
+            $table->string('institution');
+            $table->string('certificate');
+            $table->date('start_date');
+            $table->date('finish_date');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ class CreateTrayectoriaLaboralsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trayectoria_laborals');
+        Schema::dropIfExists('trainings');
     }
 }

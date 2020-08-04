@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEstudiantePostulacionsTable extends Migration
+class CreatePostulationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateEstudiantePostulacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('estudiante_postulacions', function (Blueprint $table) {
+        Schema::create('postulations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->boolean('estado');
+            $table->boolean('state');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateEstudiantePostulacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estudiante_postulacions');
+        Schema::dropIfExists('postulations');
     }
 }

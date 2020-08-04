@@ -6,15 +6,15 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCareersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('careers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('institution');
+            $table->integer('semester');
+            $table->integer('semester_num');
             $table->timestamps();
         });
     }
