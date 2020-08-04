@@ -1,14 +1,14 @@
 <?php
 
-use App\Capacitacion;
-use App\Carrera;
-use App\Empresa;
+use App\Training;
+use App\Career;
+use App\Business;
 use App\EstudiantePostulacion;
-use App\Habilidad;
-use App\Instruccion;
-use App\Oferta;
-use App\Pasante;
-use App\TrayectoriaLaboral;
+use App\Skill;
+use App\Instruction;
+use App\Offer;
+use App\Intern;
+use App\Job;
 use App\User;
 use Illuminate\Http\Request;
 /*
@@ -30,60 +30,60 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
     //Training
-    Route::get('capacitacions', 'CapacitacionController@index');
-    Route::get('capacitacions/{capacitacion}','CapacitacionController@show');
-    Route::post('capacitacions', 'CapacitacionController@store');
-    Route::put('capacitacions/{capacitacion}', 'CapacitacionController@update');
-    Route::delete('capacitacions/{capacitacion}','CapacitacionController@delete');
+    Route::get('trainings', 'TrainingController@index');
+    Route::get('trainings/{training}','TrainingController@show');
+    Route::post('trainings', 'TrainingController@store');
+    Route::put('trainings/{training}', 'TrainingController@update');
+    Route::delete('trainings/{training}','TrainingController@delete');
     //Career
-    Route::get('carreras','CarreraController@index');
-    Route::get('carreras/{carrera}', 'CarreraController@show');
-    Route::post('carreras', 'CarreraController@store');
-    Route::put('carreras/{carrera}', 'CarreraController@update');
-    Route::delete('carreras/{carrera}','CarreraController@delete');
+    Route::get('careers','CareerController@index');
+    Route::get('careers/{career}', 'CareerController@show');
+    Route::post('careers', 'CareerController@store');
+    Route::put('careers/{career}', 'CareerController@update');
+    Route::delete('careers/{career}','CareerController@delete');
 
     //Business
-    Route::get('empresas', 'EmpresaController@index');
-    Route::get('empresas/{empresa}','EmpresaController@show');
-    Route::post('empresas','EmpresaController@store');
-    Route::put('empresas/{empresa}', 'EmpresaController@update');
-    Route::delete('empresas/{empresa}', 'EmpresaController@delete');
+    Route::get('businesses', 'BusinessController@index');
+    Route::get('businesses/{business}','BusinessController@show');
+    Route::post('businesses','BusinessController@store');
+    Route::put('businesses/{business}', 'BusinessController@update');
+    Route::delete('businesses/{business}', 'BusinessController@delete');
     //Postulation
-    Route::get('estudiante_postulacions','EstudiantePostulacionController@index');
-    Route::get('estudiante_postulacions/{estudiante_postulacion}', 'EstudiantePostulacionController@show');
-    Route::post('estudiante_postulacions', 'EstudiantePostulacionController@store');
-    Route::put('estudiante_postulacions/{estudiante_postulacion}', 'EstudiantePostulacionController@update');
-    Route::delete('estudiante_postulacions/{estudiante_postulacion}','EstudiantePostulacionController@delete');
+    Route::get('postulations','Postulation@index');
+    Route::get('postulations/{postulation}', 'Postulation@show');
+    Route::post('postulations', 'Postulation@store');
+    Route::put('postulations/{postulation}', 'Postulation@update');
+    Route::delete('postulations/{postulation}','Postulation@delete');
     //Skill
-    Route::get('habilidads','HabilidadController@idex');
-    Route::get('habilidads/{habilidad}','HabilidadController@show');
-    Route::post('habilidads','HabilidadController@store');
-    Route::put('habilidads/{habilidad}','HabilidadController@update');
-    Route::delete('habilidads/{habilidad}','HabilidadController@delete');
+    Route::get('skills','SkillController@idex');
+    Route::get('skills/{skill}','SkillController@show');
+    Route::post('skills','SkillController@store');
+    Route::put('skills/{skill}','SkillController@update');
+    Route::delete('skills/{skill}','SkillController@delete');
         //Instruction
-    Route::get('instruccions', 'InstruccionController@index');
-    Route::get('instruccions/{instruccion}', 'InstruccionController@show');
-    Route::post('instruccions', 'InstruccionController@store');
-    Route::put('instruccions/{instruccion}', 'InstruccionController@update');
-    Route::delete('instruccions/{instruccion}', 'InstruccionController@delete');
+    Route::get('instructions', 'InstructionController@index');
+    Route::get('instructions/{instruction}', 'InstructionController@show');
+    Route::post('instructions', 'InstructionController@store');
+    Route::put('instructions/{instruction}', 'InstructionController@update');
+    Route::delete('instructions/{instruction}', 'InstructionController@delete');
     //Offer
-    Route::get('ofertas', 'OfertaController@index');
-    Route::get('ofertas/{oferta}', 'OfertaController@show');
-    Route::post('ofertas','OfertaController@store');
-    Route::put('ofertas/{oferta}','OfertaController@update');
-    Route::delete('ofertas/{oferta}','OfertaController@delete');
+    Route::get('offers', 'OfferController@index');
+    Route::get('offers/{offer}', 'OfferController@show');
+    Route::post('offers','OfferController@store');
+    Route::put('offers/{offer}','OfferController@update');
+    Route::delete('offers/{offer}','OfferController@delete');
         //Intern
-    Route::get('pasantes','PasanteController@index');
-    Route::get('pasantes/{pasante}', 'PasanteController@show');
-    Route::post('pasantes','PasanteController@store');
-    Route::put('pasantes/{pasante}', 'PasanteController@update');
-    Route::delete('pasantes/{pasante}','PasanteController@delete');
+    Route::get('interns','InternController@index');
+    Route::get('interns/{intern}', 'InternController@show');
+    Route::post('interns','InternController@store');
+    Route::put('interns/{intern}', 'InternController@update');
+    Route::delete('interns/{intern}','InternController@delete');
         //Job
-    Route::get('trayectoria_laborals','TrayectoriaLaboralController@index');
-    Route::get('trayectoria_laborals/{trayectoria_laboral}', 'TrayectoriaLaboralController@show');
-    Route::post('trayectoria_laborals', 'TrayectoriaLaboralController@store');
-    Route::put('trayectoria_laborals/{trayectoria_laboral}','TrayectoriaLaboralController@update');
-    Route::delete('trayectoria_laborals/{trayectoria_laboral}','TrayectoriaLaboralController@delete');
+    Route::get('jobs','JobController@index');
+    Route::get('jobs/{job}', 'JobController@show');
+    Route::post('jobs', 'JobController@store');
+    Route::put('jobs/{job}','JobController@update');
+    Route::delete('jobs/{job}','JobController@delete');
 
 
 
