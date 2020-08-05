@@ -15,6 +15,7 @@ class Skill extends JsonResource
     public function toArray($request)
     {
         return [
+            'id'=> $this->id,
             'intern_id'=>$this->intern_id,
             'name'=> $this ->name,
             'description'=> $this->description,

@@ -15,6 +15,7 @@ class Postulation extends JsonResource
     public function toArray($request)
     {
         return [
+            'id'=> $this->id,
             'intern_id'=>$this->intern_id,
             'offer_id'=>$this->offer_id,
             'state'=> $this ->state,
