@@ -15,6 +15,7 @@ class Intern extends JsonResource
     public function toArray($request)
     {
         return [
+            'id'=> $this->id,
             'document'=> $this ->document,
             'birth_date'=>$this->birth_date,
             'telephone'=>$this->telephone,

@@ -14,7 +14,7 @@ use Eloquent;
 
 class Offer extends Model
 {
-    protected $fillable = ['name','description','address','paid','gain','shift','horario','city'];
+    protected $fillable = ['name','business_id','description','address','paid','gain','shift','schedule','horario','city'];
 
     /*public static function boot(){
         parent::boot();

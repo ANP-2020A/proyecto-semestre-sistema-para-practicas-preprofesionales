@@ -30,8 +30,8 @@ class OfferController extends Controller
         //Solo funciona con validator, si se requiere hace la prueba
         //con validate comentar la linea 32 a la 37 y descomentar linea 21 a 28
         $validator = Validator::make($request->all(), [
-            'nombre' => 'required|string|unique:Offers|max:255',
-            'descripcion' => 'required']);
+            'name' => 'required|string|unique:Offers|max:255',
+            'description' => 'required']);
         if($validator->fails()){
             return response()->json(['error'=>'data_validation_failed', "error_list"=>$validator->errors()], 422);
         }
