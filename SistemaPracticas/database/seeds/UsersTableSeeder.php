@@ -13,13 +13,14 @@ class UsersTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
         $password = Hash::make('123123');
 
-        /*User::create([
+        User::create([
             'name' => 'Administrador',
             'email' => 'admin@prueba.com',
             'password' => $password,
-            'userable_id'=>1,
-            'userable_type'=>''
-        ]);*/
+            'userable_id'=>0,
+            'userable_type'=>'',
+            'role'=>'ROLE_ADMIN'
+        ]);
         for ($i = 0; $i < 10; $i++) {
 
             $intern = Intern::create([
@@ -44,6 +45,7 @@ class UsersTableSeeder extends Seeder
                 'name' => $faker->name,
                 'email' => $faker->email,
                 'password' => $password,
+                'role' => 'ROLE_INTERN'
             ]);
 
         }
@@ -64,6 +66,7 @@ class UsersTableSeeder extends Seeder
                 'name' => $faker->name,
                 'email' => $faker->email,
                 'password' => $password,
+                'role' => 'ROLE_BUSINESS'
             ]);
         }
     }
