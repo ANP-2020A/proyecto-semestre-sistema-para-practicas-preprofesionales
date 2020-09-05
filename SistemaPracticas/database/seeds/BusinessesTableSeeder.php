@@ -11,12 +11,11 @@ class BusinessesTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Business::truncate();
+        /*\App\Business::truncate();
         $faker = \Faker\Factory::create();
         for($i = 0; $i < 50; $i++)
         {
             \App\Business::create([
-                'name'=> $faker->sentence,
                 'ruc'=> $faker->phoneNumber,
                 'kind'=> $faker ->sentence,
                 'phone'=> $faker->phoneNumber,
@@ -27,6 +26,6 @@ class BusinessesTableSeeder extends Seeder
                 'person_phone'=> $faker->phoneNumber,
                 'person_email'=> $faker->email
             ]);
-        }
+        }*/
     }
 }

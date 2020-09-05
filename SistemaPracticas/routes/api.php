@@ -80,6 +80,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         Route::delete('offers/{offer}','OfferController@delete');
         //Intern
         Route::get('interns','InternController@index');
+        Route::get('intern', 'InternController@');
         Route::get('interns/{intern}', 'InternController@show');
         Route::post('interns','InternController@store');
         Route::put('interns/{intern}', 'InternController@update');

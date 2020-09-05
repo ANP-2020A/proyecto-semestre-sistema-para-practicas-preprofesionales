@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class User extends JsonResource
 {
@@ -15,11 +16,12 @@ class User extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
+            'User_id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+/*            'userable_id' => $this->userable_id,*/
+            'userable_type' => $this->userable_type,
+            $this->merge($this->userable),
         ];
     }
 }

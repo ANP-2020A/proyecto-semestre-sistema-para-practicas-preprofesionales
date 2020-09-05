@@ -11,7 +11,7 @@ class InternsTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Intern::truncate();
+        /*\App\Intern::truncate();
         $faker = \Faker\Factory::create();
         for($i = 0; $i < 50; $i++)
         {
@@ -32,6 +32,6 @@ class InternsTableSeeder extends Seeder
                 'canton'=>$faker->sentence,
                 'parish'=>$faker->sentence
             ]);
-        }
+        }*/
     }
 }

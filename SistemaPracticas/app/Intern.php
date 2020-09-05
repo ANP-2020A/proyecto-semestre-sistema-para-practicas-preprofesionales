@@ -68,6 +68,8 @@ class Intern extends Model
         'marital_status','blood_type','ethnicity','career','province','canton','parish'
     ];
 
+
+
     public function careers(){
         return $this->hasMany('App\Career');
     }
@@ -87,6 +89,10 @@ class Intern extends Model
     /*La tabla POSTULATIONS debe ser especificada*/
     public function offers(){
         return $this->belongsToMany('App\Offer','postulations');
+    }
+
+    public function user(){
+        return $this->morphOne('App\User', 'userable');
     }
 
 }

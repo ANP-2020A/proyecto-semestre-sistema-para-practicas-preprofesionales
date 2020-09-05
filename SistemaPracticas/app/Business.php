@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
  * App\Business
  *
  * @property int $id
- * @property string $name
  * @property string $ruc
  * @property string $kind
  * @property string $phone
@@ -29,7 +28,6 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Business wherePersonName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereRuc($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Business wherePhone($value)
@@ -42,10 +40,13 @@ use Illuminate\Database\Eloquent\Model;
 class Business extends Model
 {
     protected $fillable = [
-        'name','ruc','kind','phone','email','address','person_name','person_phone','person_email'
+        'ruc','kind','phone','email','address','person_name','person_phone','person_email'
     ];
 
     public function offers(){
         return $this->hasMany('App\Offer');
+    }
+    public function user(){
+        return $this->morphOne('App\User', 'userable');
     }
 }

@@ -15,7 +15,7 @@ class CreateBusinessesTable extends Migration
     {
         Schema::create('businesses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            /*$table->string('name');*/
             $table->string('ruc');
             $table->string('kind');
             $table->string('phone');
@@ -38,4 +38,6 @@ class CreateBusinessesTable extends Migration
     {
         Schema::dropIfExists('businesses');
     }
+/*Para tinker
+ * $business = App\Business::create(['ruc'=>'123456','kind'=>'abcd','phone'=>'2611456','email'=>'pepe@pecas.com','address'=>'Quitumbe','person_name'=>'Pepe Pecas','person_phone'=>'0981030191','person_email'=>'pepito@gmail.com'])*/
 }
