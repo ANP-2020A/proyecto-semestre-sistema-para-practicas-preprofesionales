@@ -16,7 +16,7 @@ class SkillsTableSeeder extends Seeder
         for($i = 0; $i < 50; $i++)
         {
             \App\Skill::create([
-                'intern_id'=>$faker->numberBetween(1,50),
+                'intern_id'=>$faker->numberBetween(1,10),
                 'name'=> $faker ->word,
                 'description'=> $faker->text,
                 'percent'=> $faker->randomNumber()

@@ -11,6 +11,7 @@ class AddUserableColumnsUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->integer('userable_id');
             $table->string('userable_type');
+            $table->string('role');
         });
     }
     public function down()
@@ -18,6 +19,7 @@ class AddUserableColumnsUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('userable_id');
             $table->dropColumn('userable_type');
+            $table->dropColumn('role');
         });
     }
 }
