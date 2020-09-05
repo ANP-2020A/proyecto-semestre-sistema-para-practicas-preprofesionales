@@ -11,13 +11,19 @@ use Illuminate\Support\Facades\Validator;
 class OfferController extends Controller
 {
     public function index(){
+        $this->authorize('viewAny', Offer::class);
+
         return new OfferCollection(Offer::paginate());
     }
     public function show(Offer $Offer){
+        $this->authorize('view', $Offer);
+
         return response()->json(new OfferResource($Offer),200);
     }
 
     public function store(Request $request){
+        $this->authorize('create', Offer::class);
+
         /* $messages = [
              'unique'=> 'Este :attribute ya existe',
              'required' => 'El campo :attribute es obligatorio.',
@@ -40,10 +46,14 @@ class OfferController extends Controller
         return response()->json($Offer,201);
     }
     public function update(Request $request,Offer $Offer){
+        $this->authorize('update', $Offer);
+
         $Offer->update($request->all());
         return response()->json($Offer,200);
     }
     public function delete(Offer $Offer){
+        $this->authorize('delete', $Offer);
+
         $Offer->delete();
         return response()->json(null,204);
     }
