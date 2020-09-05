@@ -10,83 +10,47 @@ class TrainingPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Determine whether the user can view any trainings.
-     *
-     * @param  \App\User  $user
-     * @return mixed
-     */
+    public function before($user, $ability){
+        if ($user->isGranted(User::ROLE_SUPERADMIN)){
+            return true;
+        }
+    }
+
     public function viewAny(User $user)
     {
-        //
+        return $user->isGranted(User::ROLE_BUSINESS);
+
     }
 
-    /**
-     * Determine whether the user can view the training.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Training  $training
-     * @return mixed
-     */
     public function view(User $user, Training $training)
     {
-        //
+        return $user->userable_id === $training->intern_id || $user->isGranted(User::ROLE_BUSINESS);
+
     }
 
-    /**
-     * Determine whether the user can create trainings.
-     *
-     * @param  \App\User  $user
-     * @return mixed
-     */
     public function create(User $user)
     {
-        //
+        return $user->isGranted(User::ROLE_INTERN);
+
     }
 
-    /**
-     * Determine whether the user can update the training.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Training  $training
-     * @return mixed
-     */
     public function update(User $user, Training $training)
     {
-        //
+        return $user->isGranted(User::ROLE_INTERN) && $user->userable_id === $training->intern_id;
+
     }
 
-    /**
-     * Determine whether the user can delete the training.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Training  $training
-     * @return mixed
-     */
     public function delete(User $user, Training $training)
     {
-        //
+        return $user->isGranted(User::ROLE_INTERN);
+
     }
 
-    /**
-     * Determine whether the user can restore the training.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Training  $training
-     * @return mixed
-     */
     public function restore(User $user, Training $training)
     {
         //
     }
 
-    /**
-     * Determine whether the user can permanently delete the training.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Training  $training
-     * @return mixed
-     */
     public function forceDelete(User $user, Training $training)
     {
         //
