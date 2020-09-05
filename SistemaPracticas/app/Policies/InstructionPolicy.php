@@ -10,83 +10,49 @@ class InstructionPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Determine whether the user can view any instructions.
-     *
-     * @param  \App\User  $user
-     * @return mixed
-     */
+    public function before($user, $ability){
+        if ($user->isGranted(User::ROLE_SUPERADMIN)){
+            return true;
+        }
+    }
+
     public function viewAny(User $user)
     {
-        //
+        return $user->isGranted(User::ROLE_BUSINESS);
+
     }
 
-    /**
-     * Determine whether the user can view the instruction.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Instruction  $instruction
-     * @return mixed
-     */
     public function view(User $user, Instruction $instruction)
     {
-        //
+        return $user->userable_id === $instruction->intern_id || $user->isGranted(User::ROLE_BUSINESS);
+
     }
 
-    /**
-     * Determine whether the user can create instructions.
-     *
-     * @param  \App\User  $user
-     * @return mixed
-     */
     public function create(User $user)
     {
-        //
+        return $user->isGranted(User::ROLE_INTERN);
+
     }
 
-    /**
-     * Determine whether the user can update the instruction.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Instruction  $instruction
-     * @return mixed
-     */
     public function update(User $user, Instruction $instruction)
     {
-        //
+        return $user->isGranted(User::ROLE_INTERN) && $user->userable_id === $instruction->intern_id;
+
     }
 
-    /**
-     * Determine whether the user can delete the instruction.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Instruction  $instruction
-     * @return mixed
-     */
     public function delete(User $user, Instruction $instruction)
     {
-        //
+        return $user->isGranted(User::ROLE_INTERN);
+
     }
 
-    /**
-     * Determine whether the user can restore the instruction.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Instruction  $instruction
-     * @return mixed
-     */
+
     public function restore(User $user, Instruction $instruction)
     {
         //
     }
 
-    /**
-     * Determine whether the user can permanently delete the instruction.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Instruction  $instruction
-     * @return mixed
-     */
+
     public function forceDelete(User $user, Instruction $instruction)
     {
         //
