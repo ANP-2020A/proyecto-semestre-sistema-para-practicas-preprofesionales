@@ -32,6 +32,8 @@ class SkillController extends Controller
         return response()->json($Skill,200);
     }
     public function delete(Skill $Skill){
+        $this->authorize('delete', $Skill);
+
         $Skill->delete();
         return response()->json(null,204);
     }
