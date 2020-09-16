@@ -25,14 +25,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });*/
+Route::group(['middleware' => ['cors']], function () { // <=== Añadir el middleware
     Route::post('register', 'UserController@register');
     Route::post('login', 'UserController@authenticate');
-
-
-
-
-
-
     Route::group(['middleware' => ['jwt.verify']], function() {
         Route::get('user', 'UserController@getAuthenticatedUser');
         //Training
@@ -92,4 +87,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         Route::put('jobs/{job}','JobController@update');
         Route::delete('jobs/{job}','JobController@delete');
 
+    });
 });
